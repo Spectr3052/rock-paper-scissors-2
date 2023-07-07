@@ -20,25 +20,44 @@ function getComputerChoice() {
 // let playerChoice = prompt("Choose Rock, Paper or Scissors");
 // playerChoice = playerChoice.toLowerCase(); 
 
+
+
 let roundStatus = 1
 let roundType = 1
 
 let computerScore = 0
 let playerScore = 0
 
-let victory = "You win!"
-let draw = "You draw!"
-let loss = "You lost!"
+let victory = "You win the round!"
+let draw = "You draw the round!"
+let loss = "You lost the round!"
 
 let roundNumber = 0
 
-function getPlayerChoice() {playerChoice = prompt("Choose Rock, Paper or Scissors");
-playerChoice = playerChoice.toLowerCase()
-}
+playerChoice = 0
+
+const scoreText = document.querySelector('#score')
+
+
+
+document.addEventListener('click', function (e) {
+    const click = document.querySelector(`div.rps[id = "${e.target.id}"]`)
+    playerChoice = click.id.toString();
+    if ((playerScore==5) || (computerScore==5)) {
+        return}
+    else {
+   
+    round();
+    }
+    
+       });
+
+
+
 
 function round() {
     
-    getPlayerChoice();
+    if (playerChoice==0) {return};
     computerChoice = Math.floor(Math.random() * 3)
     getComputerChoice();
 
@@ -73,24 +92,39 @@ if (!(playerChoice === "rock" || playerChoice === "paper" || playerChoice === "s
     if (roundStatus === victory) {playerScore++}
         else if (roundStatus === loss) {computerScore++}
         else {}
-        console.log(roundType + " Score - Player: " + playerScore + " | Computer: " + computerScore)
+
+        const scoreText = document.querySelector('#score')
+        const roundText = document.querySelector('#roundtext')
+
+       /* if ((playerScore==5) || (computerScore==5)) {if (playerScore > computerScore) {scoreText.textContent = "You win!"}
+        else if (computerScore > playerScore) {scoreText.textContent = "You lose!"}
+        else {scoreText.textContent = "Draw!"}
+         
+     } else { */
+        scoreText.textContent = roundType 
+        roundText.textContent = "Player: " + playerScore + " | Computer: " + computerScore
+
+        if ((playerScore==5) || (computerScore==5)) {
+            const finalscore = document.querySelector('#finalscore');
+            if (playerScore > computerScore) {finalscore.textContent = "You win the game!"}
+            else if (computerScore > playerScore) {finalscore.textContent = "You lose the game!"}
+            else {finalscore.textContent = "The game is a draw!" }}
 
     roundNumber++;
 }
 
 
 
-function game() {
+/*function game() {
     for (let i = 0; i < 5; i++) {
         round(); 
         
 
     }
 
-}
+} 
 
-game();
-
+game();*/
 
 
 

@@ -1,0 +1,106 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(to bottom right, #7ed6df, #22a6b3);
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  #box {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+  }
+  
+  div.rps {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+    background: linear-gradient(to bottom right, #fdcb6e, #e17055);
+    border: 2px solid #d35400;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  }
+  
+  div.rps:hover {
+    transform: scale(1.05);
+  }
+  
+  div.rps img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 120px;
+  }
+  
+  div.rps:active {
+    transform: scale(0.95);
+  }
+  
+  #roundtext {
+    opacity: 0;
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    animation: fadeIn 1s ease-in-out forwards;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  #score {
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  #finalscore {
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  /* Add animation for score updates */
+  @keyframes scoreUpdate {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  .score-update {
+    animation: scoreUpdate 0.5s;
+  }
+  
